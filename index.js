@@ -22,7 +22,7 @@ app.use('/api',router)
 //     console.log(`Server is running on http://localhost:${PORT}`);
 // })
 if (process.env.NODE_ENV !== 'test') {
-  server.listen(PORT, () => console.log(`Listening on port ${PORT}`))
+  server.listen(PORT, () => {console.log(`Listening on port ${PORT}`),process.exit(0)})
 }
 
 // app.on("close", () => {
