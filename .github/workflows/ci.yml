@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project (if applicable)
+      - name: Build project
         run: node index.js   # Your build command if needed
 
       - name: Run tests and mutation testing
