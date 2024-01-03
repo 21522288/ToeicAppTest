@@ -9,8 +9,12 @@ on:
       - nodejs_server
 
 jobs:
-  build:
+  test:
+    name: Node.js ${{ matrix.node_version }} Test
     runs-on: windows-latest
+    strategy:
+      matrix:
+        node_version: [14.x, 16.x, 18.x] 
 
     steps:
       - name: Checkout code
@@ -19,7 +23,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18.15.0
+          node-version: ${{ matrix.node_version }}
 
       - name: Install dependencies
         run: npm install
