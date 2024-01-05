@@ -14,17 +14,15 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest]
+        os: [macos-latest,ubuntu-latest,windows-latest]
         node_version: [18.1] 
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set execute permission for Jest (macOS)
-        if: matrix.os == 'macOS-latest'
         run: chmod +x ./node_modules/.bin/jest
       - name: Set execute permission for Stryker
-        if: matrix.os == 'macOS-latest'
         run: chmod +x ./node_modules/.bin/stryker
         
 
