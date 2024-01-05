@@ -14,18 +14,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest]
+        os: [macos-latest, window-latest]
         node_version: [18.1, 18.5] 
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
-        with:
-              fetch-depth: 0
-              persist-credentials: false
-              clean: false
-              submodules: true
-              debug: true
+        uses: actions/checkout@v2
+      - name: Set execute permission for Jest (macOS)
+        if: matrix.os == 'macOS-latest'
+        run: chmod +x ./node_modules/.bin/jest
+        
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
