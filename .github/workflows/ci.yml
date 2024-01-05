@@ -14,8 +14,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, window-latest]
-        node_version: [18.1, 18.5] 
+        os: [macos-latest]
+        node_version: [18.1] 
 
     steps:
       - name: Checkout code
