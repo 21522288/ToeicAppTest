@@ -11,9 +11,10 @@ on:
 jobs:
   test:
     name: Node.js ${{ matrix.node_version }} Test
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
         node_version: [18.1, 18.2, 18.4, 18.5] 
 
     steps:
