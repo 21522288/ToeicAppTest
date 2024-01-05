@@ -23,6 +23,9 @@ jobs:
       - name: Set execute permission for Jest (macOS)
         if: matrix.os == 'macOS-latest'
         run: chmod +x ./node_modules/.bin/jest
+      - name: Set execute permission for Stryker
+        if: matrix.os == 'macOS-latest'
+        run: chmod +x ./node_modules/.bin/stryker
         
 
       - name: Set up Node.js
