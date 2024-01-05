@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    name: Node.js ${{ matrix.node_version }} Test
+    name: Node.js ${{ matrix.node_version }} Test - ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
